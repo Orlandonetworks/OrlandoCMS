@@ -1,10 +1,12 @@
 <?php
 session_start();
 
+//Получаем переменные из сессии, которые мы ввели раньше
 $db_name = $_SESSION['dbname'];
 $db_login = $_SESSION['dblogin'];
 $db_password = $_SESSION['dbpassword'];
 $prefix = $_SESSION['dbprefix'];
+
 
 //Первичное присоединение
 
@@ -12,12 +14,19 @@ $connection = mysql_connect("localhost", $db_login, $db_password);
 $db = mysql_select_db($db_name);
 mysql_set_charset("utf8");
 
+//Выдаем ошибку, если соединение неудачно
 if(!$connection || !$db)
 {
     exit(mysql_error());
 }
 
-mysql_query("CREATE TABLE "$prefix"test
-	test1 = varchar (15),
-	test2 = year")
+//Создаем таблицы
+mysql_query("CREATE TABLE users(id int)") or die(mysql_error());
+mysql_query("CREATE TABLE tablename(id int)") or die(mysql_error());
+mysql_query("CREATE TABLE tablename2(id int)") or die(mysql_error());
+mysql_query("CREATE TABLE tablename3(id int)") or die(mysql_error());
+mysql_query("CREATE TABLE tablename4(id int)") or die(mysql_error());
+//Закроем соединение
+mysql_close();
+//Редирект дальше
 ?>
