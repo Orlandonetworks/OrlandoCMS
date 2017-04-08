@@ -21,12 +21,12 @@ if(!$connection || !$db)
 }
 
 //Создаем таблицы
-mysql_query("CREATE TABLE users(id int)") or die(mysql_error());
-mysql_query("CREATE TABLE tablename(id int)") or die(mysql_error());
+mysql_query("CREATE TABLE users(id int  AUTO_INCREMENT, login varchar(32), key varchar(255), rules varchar(20), PRIMARY KEY (id_user) )") or die(mysql_error());
+mysql_query("CREATE TABLE settings(id int)") or die(mysql_error());
 mysql_query("CREATE TABLE tablename2(id int)") or die(mysql_error());
 mysql_query("CREATE TABLE tablename3(id int)") or die(mysql_error());
 mysql_query("CREATE TABLE tablename4(id int)") or die(mysql_error());
 //Закроем соединение
 mysql_close();
-//Редирект дальше
+
 ?>
