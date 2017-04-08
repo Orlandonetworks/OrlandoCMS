@@ -32,9 +32,12 @@ elseif($GLOBALS['installstage'] == 31){
 }
 
 elseif($GLOBALS['installstage'] == 4){
-	echo readfile("installstages/4.php");
+	echo readfile("installstages/databaseinstaller.php");
 }
 
+elseif($GLOBALS['installstage'] == 5){
+	echo readfile("installstages/5.php");
+}
 
 else {
 	echo readfile("installstages/introduction.php");
